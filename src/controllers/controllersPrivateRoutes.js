@@ -1,11 +1,11 @@
 const privateUser = require('../routes/privateroutes');
 
-const renderTask = (req,res) => {
-    console.log(req.session)
+const renderPlanner = (req,res) => {
     res.render('planner');
 }
 
 const renderProfile = (req,res) => {
+    console.log(req.session)
     res.render('profile');
 }
 
@@ -14,7 +14,7 @@ const getPlanner = (req,res)=>{
     console.log(req.body)};
 
 module.exports = {
-    renderTask,
+    renderPlanner,
     renderProfile,
     getPlanner
 }

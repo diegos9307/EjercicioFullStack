@@ -1,9 +1,9 @@
 const router = require('express').Router();
 
-const {renderTask, renderProfile, getPlanner} = require('../controllers/controllersPrivateRoutes')
+const {renderPlanner, renderProfile, getPlanner} = require('../controllers/controllersPrivateRoutes')
 
 
-router.get('/planner', renderTask);
+router.get('/planner', renderPlanner);
 
 router.post('/planner', getPlanner);
 
