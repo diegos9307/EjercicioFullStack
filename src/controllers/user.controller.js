@@ -26,6 +26,7 @@ const loginUserForm = (req, res) => {
     res.render('login')
 }
 
+// flash messages
 const loginUser = async (req,res)=>{
     const {email, password} = req.body;
 
@@ -35,8 +36,8 @@ const loginUser = async (req,res)=>{
         if (user) {
             const response = await user.comparePassword(password);
             if (response) {
-                req.session.userID =user._id;
-                res.redirect('/profile')
+                req.session.userId = user._id;
+                res.redirect('/tasks')
             }else{
                 res.redirect('/login');  
             }
@@ -48,11 +49,16 @@ const loginUser = async (req,res)=>{
     }
 }
 
+const logoutUser = (req, res) => {
+    req.session = null;
+    res.redirect('/login');
+};
 
 module.exports = {
     getHome,
     createUser,
     loginUserForm,
     loginUser,
-    createUserForm
+    createUserForm,
+    logoutUser
 }
